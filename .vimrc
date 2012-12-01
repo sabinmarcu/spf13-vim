@@ -18,7 +18,6 @@
 " Environment {
     " Basics {
         set nocompatible        " must be first line
-        set background=dark     " Assume a dark background
     " }
 
     " Windows Compatible {
@@ -78,7 +77,6 @@
             Bundle 'matchit.zip'
             Bundle 'Lokaltog/vim-powerline'
             Bundle 'Lokaltog/vim-easymotion'
-            Bundle 'godlygeek/csapprox'
             Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'flazz/vim-colorschemes'
             Bundle 'corntrace/bufexplorer'
@@ -150,7 +148,11 @@
 " }
 
 " General {
-    set background=dark         " Assume a dark background
+	if strftime("%H") > 20
+		set background=dark
+	else 
+		set background=light
+	endif
     if !has('gui')
         "set term=$TERM          " Make arrow and other keys work
     endif
@@ -327,7 +329,7 @@
     map <leader>et :tabe %%
 
     " Adjust viewports to the same size
-    map <Leader>= <C-w>=
+    map <leader>= <C-w>=
 
     " Easier horizontal scrolling
     map zl zL
@@ -378,7 +380,7 @@
     " AutoCloseTag {
         " Make it so AutoCloseTag works for xml and xhtml files as well
         au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
-        nmap <Leader>ac <Plug>ToggleAutoCloseMappings
+        nmap <leader>ac <Plug>ToggleAutoCloseMappings
     " }
 
     " SnipMate {
@@ -402,16 +404,16 @@
 
     " Tabularize {
         if exists(":Tabularize")
-          nmap <Leader>a= :Tabularize /=<CR>
-          vmap <Leader>a= :Tabularize /=<CR>
-          nmap <Leader>a: :Tabularize /:<CR>
-          vmap <Leader>a: :Tabularize /:<CR>
-          nmap <Leader>a:: :Tabularize /:\zs<CR>
-          vmap <Leader>a:: :Tabularize /:\zs<CR>
-          nmap <Leader>a, :Tabularize /,<CR>
-          vmap <Leader>a, :Tabularize /,<CR>
-          nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-          vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+          nmap <leader>a= :Tabularize /=<CR>
+          vmap <leader>a= :Tabularize /=<CR>
+          nmap <leader>a: :Tabularize /:<CR>
+          vmap <leader>a: :Tabularize /:<CR>
+          nmap <leader>a:: :Tabularize /:\zs<CR>
+          vmap <leader>a:: :Tabularize /:\zs<CR>
+          nmap <leader>a, :Tabularize /,<CR>
+          vmap <leader>a, :Tabularize /,<CR>
+          nmap <leader>a<Bar> :Tabularize /<Bar><CR>
+          vmap <leader>a<Bar> :Tabularize /<Bar><CR>
 
           " The following function automatically aligns when typing a
           " supported character
