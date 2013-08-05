@@ -79,7 +79,6 @@
             Bundle 'Lokaltog/vim-easymotion'
             Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'flazz/vim-colorschemes'
-            Bundle 'corntrace/bufexplorer'
         endif
 
     " General Programming
